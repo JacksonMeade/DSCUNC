@@ -792,7 +792,7 @@
        var $target = $(card).find('.carousel-item:first');
        $target.addClass('active');
     }
-    function initTestimonialsCarousel(card){
+    function initcard-insertsCarousel(card){
         var $target = $(card),
             $carouselID = $target.attr('ID') +"-carousel";
         $target.find('.carousel').attr('id',$carouselID);
@@ -908,7 +908,7 @@
                 window.initClientPlugin = true;
                 $(document.body).find('.clients').each(function(index, el) {
                     if(!$(this).attr('data-isinit')){
-                        initTestimonialsCarousel($(this));
+                        initcard-insertsCarousel($(this));
                         initClientCarousel($(this));
                     }
                 });
@@ -922,11 +922,11 @@
                 });
             }
         }
-        if(typeof window.initTestimonialsPlugin === 'undefined'){
-            if($(document.body).find('.testimonials-slider').length!=0){
-                window.initTestimonialsPlugin = true;
-                $('.testimonials-slider').each(function(){
-                    initTestimonialsCarousel(this);
+        if(typeof window.initcard-insertsPlugin === 'undefined'){
+            if($(document.body).find('.card-inserts-slider').length!=0){
+                window.initcard-insertsPlugin = true;
+                $('.card-inserts-slider').each(function(){
+                    initcard-insertsCarousel(this);
                 });
             }
         }
