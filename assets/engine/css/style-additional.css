@@ -1798,13 +1798,14 @@ a {
 .main-nav a {
 	color: #515150;
 	font-size: .99em;
+
+    z-index: 3;
 }
 
 #nav-container {
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 3;
 }
 
 
