@@ -1821,8 +1821,10 @@ a {
   Media Queries
 ==================================== */
 
-@media(max-width: 767px) {
-
+@media(max-width: 1025px) {
+  .logo-img-main {
+    display: none;
+  }
 
 }
 
@@ -1848,9 +1850,7 @@ a {
 
 
 @media (min-width: 1400px) {
-  .logo-img-main {
-    display: none;
-  }
+
 	.header {
 		flex-direction: row;
 		justify-content: space-between;
