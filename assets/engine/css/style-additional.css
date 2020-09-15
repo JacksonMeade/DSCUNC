@@ -1696,7 +1696,7 @@ body {
   background-image: url("assets/images/Background.svg");
 }*/
 .background-svg {
-  z-index: -2;
+  z-index: -3;
   position: fixed;
   max-width: 100vw;
   width:100vw;
@@ -1774,6 +1774,7 @@ a {
 }
 
 a {
+  position: relative;
 	text-decoration: none;
 }
 
@@ -1785,7 +1786,6 @@ a {
 }
 
 .main-nav {
-  z-index: 3;
 	margin-top: 5px;
 }
 .logo a,
@@ -1798,8 +1798,6 @@ a {
 .main-nav a {
 	color: #515150;
 	font-size: .99em;
-
-    z-index: 3;
 }
 
 #nav-container {
@@ -1817,6 +1815,7 @@ a {
 #logo-img {
   height: 3.8rem;"
 }
+
 
 /* =================================
   Media Queries
