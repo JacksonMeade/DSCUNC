@@ -39,7 +39,8 @@ const dsc_event = {
     image_link: "",
     date: "",
     description: "",
-    type: ""
+    type: "",
+    link: "https://dsc.community.dev"
 };
 
 function getEvents(docs, eType) {
@@ -57,6 +58,7 @@ function getEvents(docs, eType) {
         if (item_e.className === "vertical-box-container")
         {
             const ev = Object.create(dsc_event);
+            ev.link = ev.link + item_e.outerHTML.split("href=\"")[1].split("\"")[0].trim();
             for (let j=0; j<item_e.children.length; j++)
             {
                 let child_att = item_e.children[j];
@@ -132,8 +134,7 @@ function generateCard(event_object)
    out += "<p class=\"style-light style-fonts-style align-left pt-2 display-7\">" + event_object.description + "</p>";
    out += "</div>";
    out += "<div class=\"style-section-btn align-center py-2\">";
-   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"#\">RSVP</a>";  
-   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"#\">Learn More</a>";
+   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"" + event_object.link + "\">RSVP & Learn More</a>"; 
    out += "</div></div></div>";
    return out;
 }
