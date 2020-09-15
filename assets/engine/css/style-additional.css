@@ -1821,23 +1821,16 @@ a {
   Media Queries
 ==================================== */
 
-@media(max-width: 767px) {
-  #logo-img {
+@media(max-width: 1025px) {
+  .logo-img-main {
     display: none;
   }
 
 }
 
-@media(max-width: 1025px) {
+@media(max-width: 1400px) {
   .nav-avoid {
     margin-top: 7em;
-  }
-}
-@media(min-width: 1025px) {
-  #nav-container {
-    position:fixed;
-    width: 100%;
-    top: 0;
   }
 }
 
@@ -1856,7 +1849,8 @@ a {
 	}
 
 
-@media (min-width: 1025px) {
+@media (min-width: 1400px) {
+
 	.header {
 		flex-direction: row;
 		justify-content: space-between;
@@ -1866,6 +1860,11 @@ a {
   }
   .main-nav {
     margin-right: 3.8rem;
+  }
+  #nav-container {
+    position:fixed;
+    width: 100%;
+    top: 0;
   }
 }
 
