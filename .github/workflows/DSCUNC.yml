@@ -31,8 +31,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Merge pull requests
-      # You may pin to the exact commit or the version.
-      # uses: pascalgn/automerge-action@a6eda95628e71aa97719c9e111847402fa9d476a
-        uses: pascalgn/automerge-action@v0.10.0
-  
