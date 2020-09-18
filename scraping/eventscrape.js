@@ -19,12 +19,12 @@ fetch(proxy_url+unc_site).then(function (response) {
     //console.log(html);
     doc = parser.parseFromString(html, "text/html");
     
-    pastEvents = getEvents(doc, "past-events");
-    upcomingEvents = getEvents(doc, "upcoming-events");
+    pastEvents = getPastEvents(doc, "past-events","vertical-box-container");
+    upcomingEvents = getUpcomingEvents(doc, "upcoming-events", "row event ");
 
     var pastEventsHTML = generateCardsHTML(pastEvents);
     var upcomingEventsHTML = generateCardsHTML(upcomingEvents);
-
+    console.log(upcomingEvents);
     document.getElementsByClassName("col-12 card-inserts-container")[0].innerHTML = upcomingEventsHTML+pastEventsHTML;
     
 }).catch(function (err) {
@@ -40,10 +40,41 @@ const dsc_event = {
     date: "",
     description: "",
     type: "",
-    link: "https://dsc.community.dev"
+    link: "https://dsc.community.dev",
+    tag: ""
 };
 
-function getEvents(docs, eType) {
+function getUpcomingEvents(docs, eType, container) {
+    var temp = docs.getElementById(eType);
+    if (temp==null) return [];
+    var temp2 = temp.querySelector("ul");
+    if (temp2==null) return [];
+
+    
+    var upcoming = temp2.childNodes;
+    var object_list = [];
+    for (let i=0; i<upcoming.length; i++)
+    {
+        let item_e = upcoming[i];
+        if (item_e.className === container)
+        {
+            console.log(item_e);
+            const ev = Object.create(dsc_event);
+
+            ev.link = ev.link + item_e.innerHTML.split("href=\"")[1].split("\"")[0].trim();
+            ev.image_link = item_e.innerHTML.split("src=\"")[1].split("\"")[0].trim();
+            ev.date = item_e.innerHTML.split("<strong>")[1].split("</strong>")[0];
+            ev.type = item_e.innerHTML.split("<span>")[1].split("</span>")[0];
+            ev.title = item_e.innerHTML.split("\"general-body--color\">")[1].split("</h4>")[0];
+            ev.tag = item_e.innerHTML.split("<div data-tags=\"")[1].split("\"")[0];
+            
+            object_list.push(ev);
+        }
+    }
+    return object_list;
+}
+
+function getPastEvents(docs, eType, container) {
     var temp = docs.getElementById(eType);
     if (temp==null) return [];
     var temp2 = temp.querySelector("ul");
@@ -55,7 +86,7 @@ function getEvents(docs, eType) {
     for (let i=0; i<past.length; i++)
     {
         let item_e = past[i];
-        if (item_e.className === "vertical-box-container")
+        if (item_e.className === container)
         {
             const ev = Object.create(dsc_event);
             ev.link = ev.link + item_e.outerHTML.split("href=\"")[1].split("\"")[0].trim();
@@ -125,7 +156,7 @@ function generateCard(event_object)
    out += event_object.type;
    out += "</div>";
    out += "<div class=\"style-fonts-style align-left display-8\">";
-   out += "<a class =\"tag\">" + event_object.type + "</a>";
+   out += "<a class =\"tag\">" + (event_object.tag==="" ? event_object.type : event_object.tag) + "</a>";
    out += "</div>";
    out += "<div class=\"style-fonts-style align-left display-5\">";
    out += event_object.date;
