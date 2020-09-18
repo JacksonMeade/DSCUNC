@@ -24,7 +24,7 @@ fetch(proxy_url+unc_site).then(function (response) {
 
     var pastEventsHTML = generateCardsHTML(pastEvents);
     var upcomingEventsHTML = generateCardsHTML(upcomingEvents);
-    console.log(upcomingEvents);
+
     document.getElementsByClassName("col-12 card-inserts-container")[0].innerHTML = upcomingEventsHTML+pastEventsHTML;
     
 }).catch(function (err) {
@@ -58,7 +58,6 @@ function getUpcomingEvents(docs, eType, container) {
         let item_e = upcoming[i];
         if (item_e.className === container)
         {
-            console.log(item_e);
             const ev = Object.create(dsc_event);
 
             ev.link = ev.link + item_e.innerHTML.split("href=\"")[1].split("\"")[0].trim();
