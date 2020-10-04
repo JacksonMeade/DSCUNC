@@ -144,7 +144,7 @@ function generateCard(event_object)
         </div>
     */
    var out = "<div class=\"row\">";
-   out += "<div class=\"col-md-5 col-md-12 card-inserts-profile\">";
+   out += "<div class=\"col-md-5 col-sm-12 card-inserts-profile\">";
    out += "<img class=\"profile\" src=\"" + event_object.image_link + "\" alt=\"No Profile\">";
    out += "</div>";
    out += "<div class=\"col-7\">";
