@@ -169,7 +169,7 @@ function generateCard(event_object)
    out += "<p class=\"style-light style-fonts-style align-left pt-2 display-7\">" + event_object.description + "</p>";
    out += "</div>";
    out += "<div class=\"style-section-btn align-center py-2\">";
-   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"" + event_object.link + "\">RSVP & Learn More</a>";
+   out += "<a class=\"btn btn-md btn-secondary display-4\" target=\"_blank\" href=\"" + event_object.link + "\">RSVP & Learn More</a>";
    out += "</div></div></div>";
    return out;
 }
