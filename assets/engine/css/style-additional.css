@@ -1861,11 +1861,6 @@ a {
   .main-nav {
     margin-right: 3.8rem;
   }
-  #nav-container {
-    position:fixed;
-    width: 100%;
-    top: 0;
-  }
 }
 
 .section-main {
@@ -2489,8 +2484,11 @@ box-shadow: 4px 3px 12px 3px rgba(0,0,0,0.13);
   }
 }
 
+
 .footer {
-  border-top: 0.2rem solid lightgrey;
+  -webkit-box-shadow: 0px -21px 38px -24px rgba(0,0,0,0.23);
+  -moz-box-shadow: 0px -21px 38px -24px rgba(0,0,0,0.23);
+  box-shadow: 0px -21px 38px -24px rgba(0,0,0,0.23);
   padding-top: 1rem;
 }
 .section-two-additive {
