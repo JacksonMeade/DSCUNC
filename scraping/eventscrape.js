@@ -97,7 +97,12 @@ function getPastEvents(docs, eType, container) {
                     ev.image_link = img_s.substring(0,img_s.length-2);
                 } else if (j==1)
                 {
+                  try {
                     ev.date = child_att.outerText.trim();
+                  }
+                  catch(err) {
+                    ev.date = child_att.textContent.trim();
+                  }
                 }
                 else if (j==2) {
                     ev.type = child_att.innerText.trim();
@@ -147,7 +152,7 @@ function generateCard(event_object)
    out += "<div class=\"col-md-5 col-sm-12 card-inserts-profile\">";
    out += "<img class=\"profile\" src=\"" + event_object.image_link + "\" alt=\"No Profile\">";
    out += "</div>";
-   out += "<div class=\"col-7\">";
+   out += "<div class=\"col-md-7 col-sm-12\">";
    out += "<div class=\"style-bold style-fonts-style align-left pt-3 display-2\">";
    out += event_object.title;
    out += "</div>";
