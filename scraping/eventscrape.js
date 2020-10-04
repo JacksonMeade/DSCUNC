@@ -18,7 +18,7 @@ fetch(proxy_url+unc_site).then(function (response) {
 	// This is the HTML from our response as a text string
     //console.log(html);
     doc = parser.parseFromString(html, "text/html");
-    
+
     pastEvents = getPastEvents(doc, "past-events","vertical-box-container");
     upcomingEvents = getUpcomingEvents(doc, "upcoming-events", "row event ");
 
@@ -26,7 +26,7 @@ fetch(proxy_url+unc_site).then(function (response) {
     var upcomingEventsHTML = generateCardsHTML(upcomingEvents);
 
     document.getElementsByClassName("col-12 card-inserts-container")[0].innerHTML = upcomingEventsHTML+pastEventsHTML;
-    
+
 }).catch(function (err) {
 	// There was an error
 	console.warn('Something went wrong.', err);
@@ -50,7 +50,7 @@ function getUpcomingEvents(docs, eType, container) {
     var temp2 = temp.querySelector("ul");
     if (temp2==null) return [];
 
-    
+
     var upcoming = temp2.childNodes;
     var object_list = [];
     for (let i=0; i<upcoming.length; i++)
@@ -66,7 +66,7 @@ function getUpcomingEvents(docs, eType, container) {
             ev.type = item_e.innerHTML.split("<span>")[1].split("</span>")[0];
             ev.title = item_e.innerHTML.split("\"general-body--color\">")[1].split("</h4>")[0];
             ev.tag = item_e.innerHTML.split("<div data-tags=\"")[1].split("\"")[0];
-            
+
             object_list.push(ev);
         }
     }
@@ -79,7 +79,7 @@ function getPastEvents(docs, eType, container) {
     var temp2 = temp.querySelector("ul");
     if (temp2==null) return [];
 
-    
+
     var past = temp2.childNodes;
     var object_list = [];
     for (let i=0; i<past.length; i++)
@@ -144,7 +144,7 @@ function generateCard(event_object)
         </div>
     */
    var out = "<div class=\"row\">";
-   out += "<div class=\"col-5 card-inserts-profile\">";
+   out += "<div class=\"col-md-5 col-md-12 card-inserts-profile\">";
    out += "<img class=\"profile\" src=\"" + event_object.image_link + "\" alt=\"No Profile\">";
    out += "</div>";
    out += "<div class=\"col-7\">";
@@ -164,7 +164,7 @@ function generateCard(event_object)
    out += "<p class=\"style-light style-fonts-style align-left pt-2 display-7\">" + event_object.description + "</p>";
    out += "</div>";
    out += "<div class=\"style-section-btn align-center py-2\">";
-   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"" + event_object.link + "\">RSVP & Learn More</a>"; 
+   out += "<a class=\"btn btn-md btn-secondary display-4\" href=\"" + event_object.link + "\">RSVP & Learn More</a>";
    out += "</div></div></div>";
    return out;
 }
