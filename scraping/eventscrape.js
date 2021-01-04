@@ -2,7 +2,7 @@ var parser = new DOMParser();
 var doc = new Document();
 
 const unc_site = "https://dsc.community.dev/the-university-of-north-carolina-at-chapel-hill/";
-const proxy_url = "https://cors-anywhere.herokuapp.com/";
+const proxy_url = "";
 
 
 function decodeSpecChar(inx) {
